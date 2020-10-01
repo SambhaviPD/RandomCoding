@@ -1,2 +1,2 @@
 # RandomCoding
-Small pieces of utility code that I use day in and day out. 
+Small pieces of utility code in python, django projects present in my blog, plot/dash related files
