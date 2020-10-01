@@ -1,0 +1,20 @@
+{% extends "student/base.html" %}
+
+{% block content %}
+	{% csrf_token %}
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="card bg-primary text-white">
+				  <div class="card-body">
+				    <h4 class="card-title">Students</h4>
+				    <p class="card-text">Click for details</p>
+				    <a href="{% url 'student:redirect_student' 1 %}" class="btn btn-warning">Enter</a>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends "student/base.html" %}
+
+{% block content %}
+	<h1 style="text-align: center"> Student details submitted successfully <h1><br>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h3>Name :  {{ studentdetail.name }} </h3>
+				<h3>Semester : {{ studentdetail.semester }} </h3>
+				<h3>Favorite Subject 1 :  {{ studentdetail.favorite1 }} </h3>
+				<h3>Favorite Subject 2 :  {{ studentdetail.favorite2 }} </h3>
+				<h3>Favorite Subject 3 :  {{ studentdetail.favorite3 }} </h3>
+			</div>
+		</div>
+		<a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+	</div>
+{% endblock %}
