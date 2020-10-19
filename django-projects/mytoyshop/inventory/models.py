@@ -12,6 +12,9 @@ class Category(models.Model):
     class Meta:
        unique_together = ['name',]
 
+    def __str__(self):
+      return self.name
+
 # Table to hold details about each Toy
 class Toy(models.Model):
     name = models.CharField(max_length=100, verbose_name= \
@@ -35,5 +38,5 @@ class Toy(models.Model):
     class Meta:
         unique_together = ['name', 'category']
      
-    def __string__(self):
-        return '{0} {1}'.format(self.name, self.category)
+    def __str__(self):
+        return '{0} - {1}'.format(self.name, self.category)
