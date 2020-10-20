@@ -1,0 +1,4 @@
+[
+  "inventory/tests/test_views.py::test_create_category",
+  "inventory/tests/test_views.py::test_create_category_without_name"
+]
