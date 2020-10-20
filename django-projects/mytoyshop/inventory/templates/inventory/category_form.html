@@ -1,0 +1,33 @@
+{% extends "inventory/base.html" %}
+
+{% block content %}
+
+<br>
+<h1 style="text-align: center;">Add/Update a Toy Category</h1><br>
+<form method="post" novalidate>
+  {% csrf_token %}
+
+  {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+  {% endfor %}
+
+  <div class="container">
+  	<div class="row">
+		  {% for field in form.visible_fields %}
+		  	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+			    <div class="form-group">
+			      {{ field.label_tag }}
+			      {{ field }}
+			      {% if field.help_text %}
+			        <small class="form-text text-muted">{{ field.help_text }}</small>
+			      {% endif %}
+			    </div>
+			</div>
+		  {% endfor %}
+	</div>
+	<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+  	<a href="{% url 'home' %}" class="btn btn-success btn-lg">Back</a>
+   </div>	
+</form>
+{% endblock %}
+
