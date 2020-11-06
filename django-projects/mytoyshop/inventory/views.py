@@ -21,3 +21,19 @@ class ListCategory(ListView):
 	context_object_name = 'categories'
 	paginate_by = 10
 
+class AddToy(SuccessMessageMixin, CreateView):
+	model = models.Toy
+	fields = '__all__'
+	success_message = 'Toy added successfully'
+
+class UpdateToy(SuccessMessageMixin, UpdateView):
+	model = models.Toy
+	fields = '__all__'
+	success_message = 'Toy Details updated successfully'
+
+class ListToys(ListView):
+	model = models.Toy
+	queryset = models.Toy.objects.all()
+	context_object_name = 'toys'
+	paginate_by = 10
+

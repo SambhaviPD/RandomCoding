@@ -8,23 +8,29 @@
 				<thead>
 					<th> Name </th>
 					<th> Description </th>
+					<th> Cost </th>
+					<th> Brand </th>
+					<th> Activity Type </th>
 				</thead>
 				<tbody>
-					{% for category in categories %}
+					{% for toy in toys %}
 						<tr>
-							<td><a href="{{ category.get_absolute_url }}"> {{ category.name }} </a></td>
-							<td> {{ category.description }} </td>
+							<td><a href="{{ toy.get_absolute_url }}"> {{ toy.name }} </a></td>
+							<td> {{ toy.description }} </td>
+							<td> {{ toy.cost }} </td>
+							<td> {{ toy.brand }} </td>
+							<td> {{ toy.activity_type }} </td>
 						</tr>
 					{% empty %}
 					    <tr>
-            				<td colspan="4">No Categories added yet.</td>
+            				<td colspan="4">No toys added yet.</td>
           				</tr>
 					{% endfor %}
 				</tbody>
 			</table>
 		</div>
 		<br>
-		<a href="{% url 'inventory:add_category' %}" class="btn btn-primary btn-lg">Add a new Category</a>
+		<a href="{% url 'inventory:add_toy' %}" class="btn btn-primary btn-lg">Add a new Toy</a>
 		<a href="{% url 'inventory:home' %}" class="btn btn-success btn-lg">Back</a>
 	</div>
 {% endblock %}

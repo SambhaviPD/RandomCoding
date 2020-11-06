@@ -44,3 +44,6 @@ class Toy(models.Model):
      
     def __str__(self):
         return '{0} - {1}'.format(self.name, self.category)
+
+    def get_absolute_url(self):
+      return reverse('inventory:update_toy', kwargs={'pk':self.pk})

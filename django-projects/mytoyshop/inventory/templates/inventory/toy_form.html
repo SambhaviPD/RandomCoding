@@ -5,20 +5,13 @@
 {% block content %}
 
 <br>
-<h1 style="text-align: center;">Add/Update a Toy Category</h1><br>
+<h1 style="text-align: center;">Add/Update details about a Toy </h1><br>
 <form method="post" novalidate>
   {% csrf_token %}
 
   {% for hidden_field in form.hidden_fields %}
     {{ hidden_field }}
   {% endfor %}
-
-  {% if form.name.errors %}
-    <ul>
-    {% for error in form.name.errors %}
-        <li>{{ error }}</li>
-    {% endfor %}
-  {% endif %}
 
   <div class="container">
   	<div class="row">

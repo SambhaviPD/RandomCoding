@@ -1,4 +1,7 @@
 [
+  "inventory/tests/test_urls.py::test_addcategory_url",
+  "inventory/tests/test_urls.py::test_addtoy_url",
   "inventory/tests/test_views.py::test_create_category",
-  "inventory/tests/test_views.py::test_create_category_without_name"
+  "inventory/tests/test_views.py::test_create_category_without_name",
+  "inventory/tests/test_views.py::test_create_toy"
 ]
