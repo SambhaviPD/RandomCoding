@@ -1,5 +1,6 @@
 from django.urls import reverse
 from django.db import models
+from django.conf import settings
  
 # Create your models here.
  
@@ -38,6 +39,8 @@ class Toy(models.Model):
     )
     activity_type = models.CharField(max_length=20, choices=\
        ACTIVITY_TYPE_CHOICES, verbose_name='Activity type')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,  \
+      on_delete=models.CASCADE)
      
     class Meta:
         unique_together = ['name', 'category']

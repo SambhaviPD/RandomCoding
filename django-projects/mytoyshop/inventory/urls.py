@@ -1,5 +1,6 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
 
 from . import views
 
@@ -14,7 +15,7 @@ urlpatterns = [
 		name='update_category'),
 	path('categories', views.ListCategory.as_view(), name='categories'),
 	# Toy
-	path('add_toy', views.AddToy.as_view(), name='add_toy'),
+	path('add_toy', login_required(views.AddToy.as_view()), name='add_toy'),
 	path('update_toy/<int:pk>', views.UpdateToy.as_view(), name='update_toy'),
 	path('toys', views.ListToys.as_view(), name='toys'),
 ]

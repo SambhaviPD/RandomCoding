@@ -42,8 +42,12 @@ def category_softtoys(db) -> models.Category:
 	return category
 
 @pytest.mark.django_db
-def test_create_toy(client, category_softtoys):
+def test_create_toy(client, django_user_model, category_softtoys):
 	add_toy_url = urls.reverse('inventory:add_toy')
+	username = "testuser"
+	password = "testpassword"
+	user = django_user_model.objects.create_user(username=username, password=password)
+	client.force_login(user)
 	resp = client.post(add_toy_url, {
 			'id': 1,
 			'name': 'Rabbit with carrot stuffed soft plush toy',
@@ -51,7 +55,8 @@ def test_create_toy(client, category_softtoys):
 			'description': 'Cute soft toy',
 			'cost':194.00,
 			'brand':'Deals India',
-			'activity_type': 'Indoor'
+			'activity_type': 'Indoor',
+			'user': user
 		})
 	assert resp.status_code == 200
 	assert 'Add/Update details about a Toy' in str(resp.content)
